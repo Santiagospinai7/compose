@@ -1,0 +1,38 @@
+{
+  "name": "part3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "cross-env npm run lint",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "29.5.0",
+    "nodemon": "2.0.22",
+    "standard": "17.0.0"
+  },
+  "dependencies": {
+    "@sentry/node": "7.50.0",
+    "@sentry/tracing": "7.50.0",
+    "cors": "2.8.5",
+    "cross-env": "7.0.3",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "mongoose": "7.0.5"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json",
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
