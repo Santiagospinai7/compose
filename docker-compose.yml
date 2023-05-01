@@ -5,6 +5,26 @@ services:
     restart: always
     build: ./server
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - mongo
+  client:
+    container_name: client-container
+    restart: always
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+  mongo:
+    container_name: mongo-backend
+    image: mongo
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+    volumes:
+      - apiDB:/data/db
+
+volumes:
+  apiDB:
