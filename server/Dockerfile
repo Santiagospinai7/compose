@@ -1,11 +1,17 @@
-FROM node
+FROM node AS production
 
-WORKDIR /app
+ENV NODE_ENV=production
 
-COPY package.json /app
+WORKDIR /server
+
+COPY package.json /server
+COPY package-lock.json /server
+
 RUN npm install
 
-COPY . /app
+COPY . /server
+
+RUN npm run build
 
 EXPOSE 3001
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npm run start"]
